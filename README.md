@@ -1,6 +1,6 @@
 # Wind Tunnel Upgrade: motorized 6-component sting balance
 
-## ▶ View the website: **https://rujones92.github.io/Wind-Tunnel-Upgrade/**
+## ▶ View the website: [rujones92.github.io/Wind-Tunnel-Upgrade](https://rujones92.github.io/Wind-Tunnel-Upgrade/)
 
 This repository hosts the design package for a motorized sting force balance for a university low-speed wind
 tunnel (test section 26.25 × 11.25 × 30 in, 70-100 mph). The tunnel tests 3D-printed aircraft models. A one-piece
