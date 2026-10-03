@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Balance - Sting Balance (Roll, Pitch, Yaw)</title>
+<meta name="description" content="6-component balance design, measuring principle and gauges">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232a78d6'/%3E%3Cpath d='M5 18h14l6-4h3' stroke='white' stroke-width='3' fill='none'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css"><script>
+(function(){try{var t=localStorage.getItem('sbrpy-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+function toggleTheme(){var d=document.documentElement,c=d.getAttribute('data-theme');
+var dark=c?c==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;var n=dark?'light':'dark';
+d.setAttribute('data-theme',n);try{localStorage.setItem('sbrpy-theme',n);}catch(e){}}
+</script></head>
+<body><header class="top"><div class="top-inner"><a class="brand" href="index.html">Sting Balance <span>R/P/Y</span></a>
+<nav class="main" aria-label="Pages"><a href="index.html">Overview</a><a href="requirements.html">Requirements</a><a href="balance.html" class="on">Balance</a><a href="models.html">Models & pod</a><a href="motion.html">Motion system</a><a href="instrumentation.html">Electronics & control</a><a href="calibration.html">Calibration</a><a href="drawings.html">Drawings</a><a href="cost.html">Machining cost</a><a href="plan.html">Implementation plan</a><a href="history.html">Design history</a><a href="references.html">References & files</a></nav><button class="theme" onclick="toggleTheme()" aria-label="Toggle dark mode">Theme</button></div></header>
+<main>
+<h1>The 6-component balance</h1>
+<p class="lead">One piece of 7075-T651 aluminum, 5.10 in long plus a 1.25 in long, 0.750 in diameter spigot, 0.31 lb. Two tall-narrow necks
+measure pitch, yaw and roll; a two-plate flexure in the middle measures drag.</p>
+<div class="toc"><a href="#layout">Layout</a><a href="#how">How it measures</a><a href="#gauges">Gauges</a>
+<a href="#numbers">Numbers</a><a href="#why">Why it is shaped like this</a><a href="#fab">Fabrication</a></div>
+<div class="grid g2"><figure><a href="assets/img/balance_side.png"><img src="assets/img/balance_side.png" alt="Side view: front block | front neck | drag flexure | aft neck | aft block | spigot to the sting." loading="lazy"></a><figcaption>Side view: front block | front neck | drag flexure | aft neck | aft block | spigot to the sting.</figcaption></figure>
+<figure><a href="assets/img/balance_top.png"><img src="assets/img/balance_top.png" alt="Top view: the necks are only 0.220 in wide so they bend usefully in yaw too." loading="lazy"></a><figcaption>Top view: the necks are only 0.220 in wide so they bend usefully in yaw too.</figcaption></figure></div>
+<h2 id="layout">Layout</h2>
+<div class="table-wrap"><table><thead><tr><th class="">Section</th><th class="">Size (in)</th><th class="">Job</th></tr></thead><tbody><tr><td class="">Front block + face</td><td class="">0.75 x 1.25 bar; 2x #10-32 + 2x 1/8 dowels</td><td class="">Model puck bolts here (model side)</td></tr><tr><td class="">Front neck (x = -1.35)</td><td class="">0.220 W x 0.510 H x 0.90 L, r 0.06 fillets</td><td class="">Pitch + yaw bending, roll torsion</td></tr><tr><td class="">Drag flexure (x = 0)</td><td class="">2 plates 0.025 x 0.75 x 0.75, 0.75 apart; 0.012 slots</td><td class="">Drag (axial force)</td></tr><tr><td class="">Aft neck (x = +1.35)</td><td class="">same as front neck</td><td class="">Pitch + yaw bending</td></tr><tr><td class="">Aft block + spigot</td><td class="">spigot Ø0.7490-0.7495 x 1.25, cross pin, wire bore</td><td class="">Into the sting socket (sting side)</td></tr></tbody></table></div>
+<h2 id="how">How it measures</h2>
+<div class="grid g2">
+<div class="card"><h3>Lift and pitching moment - two-moment method</h3>
+<p>Lift acts at the BMC between the two necks, so the necks bend in opposite directions; a pure pitching moment bends
+them the same way. Each neck's top/bottom gauge bridge measures its bending moment:</p>
+<pre>M_fwd = m - 1.35 N      M_aft = m + 1.35 N
+N = (M_aft - M_fwd) / 2.70      m = (M_aft + M_fwd) / 2</pre>
+<p>The lift reading does not depend on where the centre of pressure is.</p></div>
+<div class="card"><h3>Side force and yawing moment</h3><p>The same idea in the yaw plane, with gauges on the
+necks' side faces on the pitch-neutral line (z = 0): Y = (Y2 - Y1)/2.70, n = (Y2 + Y1)/2.</p>
+<h3>Rolling moment</h3><p>A ±45° shear ("chevron") bridge on the front neck's side faces, where torsional shear
+peaks; it ignores pitch and yaw bending.</p></div>
+<div class="card"><h3>Drag - the two-plate flexure</h3><p>Drag is 50-100x smaller than lift, so it gets its own soft
+element. The bottom rail belongs to the model side, the top rail to the sting side, and two thin plates are the only link.
+Drag shifts one rail past the other and bends both plates into an S; lift and pitching moment only push or pull the
+plates along their length. Gauges near the plate roots, wired so the S-bending adds and the push-pull cancels, read drag.
+The slots double as overload stops.</p></div>
+<div class="card"><h3>From balance axes to wind axes</h3><p>The balance rolls and pitches with the model, so it measures
+body-axis loads. Lift and drag follow from the measured attitude, e.g. D = A cosα + N sinα and
+L = N cosα - A sinα (full 3-axis transform in the data reduction). A 0.1° attitude error moves drag by about
+ΔC<sub>D</sub> 0.0016 (16 counts) at 100 mph - hence the inclinometer, encoders and the IMU in the pod.</p></div>
+</div>
+<h2 id="gauges">Strain gauges - 24 grids, 6 bridges</h2>
+<figure><a href="assets/img/gauge_layout_6c.png"><img src="assets/img/gauge_layout_6c.png" alt="Gauge layout: pitch pairs on top/bottom faces, yaw pairs and the roll chevron on the side faces, drag gauges on the plates." loading="lazy"></a><figcaption>Gauge layout: pitch pairs on top/bottom faces, yaw pairs and the roll chevron on the side faces, drag gauges on the plates.</figcaption></figure>
+<div class="table-wrap"><table><thead><tr><th class="">Bridge</th><th class="">Gauges</th><th class="n">Output at full scale</th></tr></thead><tbody><tr><td class="">M1, M2 (pitch)</td><td class="">top + bottom faces, tandem pairs at ±0.15 in about each neck centre</td><td class="n">0.98 mV/V</td></tr><tr><td class="">Y1, Y2 (yaw)</td><td class="">both side faces at z = 0, tandem pairs at ±0.26 in</td><td class="n">0.97 mV/V</td></tr><tr><td class="">L (roll)</td><td class="">2 chevron gauges, front-neck side faces</td><td class="n">1.23 mV/V</td></tr><tr><td class="">A (drag)</td><td class="">4 gauges on the window-side plate faces, 0.10 in from the roots</td><td class="n">1.35 mV/V</td></tr></tbody></table></div>
+<p>Micro-Measurements CEA-13 series (self-temperature-compensated for aluminum), 350 Ω, 3.3 V excitation (shared low-noise LT3042 bus, see Electronics), narrow grids
+(0.031-0.062 in) on the 0.220 in faces; room-temperature-cure AE-10 adhesive so the 7075-T651 is not over-aged by a hot
+cure; 10 kΩ NTC thermistor on the aft block.</p>
+<h2 id="numbers">Key numbers</h2>
+<div class="grid g4"><div class="stat"><div class="v">SF 7.2</div><div class="k">on yield, all six loads at once</div></div><div class="stat"><div class="v">0.14° / 0.24° / 0.60°</div><div class="k">pitch / yaw / roll deflection at FS</div></div><div class="stat"><div class="v">0.31 lb</div><div class="k">balance mass</div></div><div class="stat"><div class="v">~1 mV/V</div><div class="k">every bridge at full scale</div></div></div>
+<div class="grid g2" style="margin-top:16px"><figure><a href="assets/img/balance_neck.png"><img src="assets/img/balance_neck.png" alt="Forward neck close-up: cut from all four sides with r 0.06 fillets in both planes." loading="lazy"></a><figcaption>Forward neck close-up: cut from all four sides with r 0.06 fillets in both planes.</figcaption></figure>
+<figure><a href="assets/img/balance_flight.png"><img src="assets/img/balance_flight.png" alt="Flight assembly: instrumented pod (transparent), puck, balance and sting." loading="lazy"></a><figcaption>Flight assembly: instrumented pod (transparent), puck, balance and sting.</figcaption></figure></div>
+<h2 id="why">Why it is shaped like this</h2>
+<ul class="tight">
+<li><b>One piece</b> (NASA Langley's first rule): bolted joints in the load path cause hysteresis and zero shift.</li>
+<li><b>Two-moment necks</b> are the simplest measuring elements; the BMC midway between them decouples lift from moment.</li>
+<li><b>Tall-narrow neck section (h/b = 2.3)</b> equalises pitch and yaw strain, because the pitch-plane moment is 2.3x the yaw-plane moment.</li>
+<li><b>Drag flexure at the BMC</b>, where the bending moment is only m (not m + N·x), so the plates see the least lift interaction.</li>
+<li><b>Aluminum, not steel or plastic</b>: lower modulus gives a stiffer balance for the same signal; printed polymers were rejected for creep (see <a href="history.html">history</a>).</li>
+<li><b>~1 mV/V at full scale</b> - the NASA design target, with stress at 7 % of yield.</li>
+</ul>
+<h2 id="fab">Fabrication notes</h2>
+<ul class="tight"><li>Wire EDM for the necks, plates, window and slots (rough + 2 skim passes); both necks and both plates from one setup.</li>
+<li>Gauge faces Ra 16 µin, flat 0.0005 in; CMM inspection of neck and plate sections; record actuals for calibration.</li>
+</ul>
+<h3>Parts, drawings and CAD files</h3><div class="table-wrap"><table><thead><tr><th class="">Drawing (PDF)</th><th class="">Part</th><th class="">STEP</th></tr></thead><tbody><tr><td class=""><a href="assets/drawings/WT-6C-100.pdf">WT-6C-100</a></td><td class="">Assembly, flight (parts list)</td><td class=""><a href="files/cad/six_component_balance/assembly_6c_flight.step">assembly_6c_flight.step</a></td></tr><tr><td class=""><a href="assets/drawings/WT-6C-001.pdf">WT-6C-001</a></td><td class="">Balance, 6-component</td><td class=""><a href="files/cad/six_component_balance/balance_6c_7075.step">balance_6c_7075.step</a></td></tr><tr><td class=""><a href="assets/drawings/WT-6C-002.pdf">WT-6C-002</a></td><td class="">Puck, model interface</td><td class=""><a href="files/cad/six_component_balance/model_puck_6061.step">model_puck_6061.step</a></td></tr><tr><td class=""><a href="assets/drawings/WT-6C-003.pdf">WT-6C-003</a></td><td class="">Sting</td><td class=""><a href="files/cad/six_component_balance/sting_4140.step">sting_4140.step</a></td></tr></tbody></table></div>
+<p class="muted">The model pod is 3D printed from its STEP file (no drawing): see <a href="models.html">Models &amp; pod</a>.</p>
+<div class="pager"><a href="requirements.html">&larr; Requirements</a><a href="models.html">Models & pod &rarr;</a></div></main>
+<footer><div class="in">Wind-tunnel sting balance project - motorized 6-component balance with roll, pitch and yaw.
+Design package generated 2026-10-03 (REV A, AI-assisted; not yet checked or approved for manufacture).</div></footer>
+</body></html>

@@ -1,0 +1,32 @@
+dwg,name,qty,material,tol,envelope_in,part_lb,stock_lb,ship_kg,hours,CN,CN_landed,SCS,US,SHOP,scs_ok,note
+WT-6C-001,"Balance, 6-component",1,7075-T651,ultra,0.75 x 1.25 x 6.35,0.31,0.8,0.24,16.1,194-386,369-733,,1569-2432,1145-1796,False,"wire EDM necks/flexures (rough + 2 skims), +-.0005 sections, CMM report; the cost driver"
+WT-6C-002,"Puck, model interface",1,6061-T6,prec,0.40 x 1.70 x 1.70,0.06,0.18,0.11,2.9,26-58,49-110,,279-444,192-313,False,dowel holes +.0005; flatness .0005 is beyond SendCutSend
+WT-6C-003,Sting,1,4140 PH,ultra,0.88 x 0.88 x 17.45,2.42,5.03,1.37,9.6,167-320,301-576,,957-1498,705-1119,False,"0.300 bore x 17 in = gun drilling (or start from DOM/honed tube); OD ground, straightness .002"
+WT-6C-201,"Spindle, roll",1,4140 PH,ultra,1.50 x 1.50 x 6.97,1.51,5.42,0.86,11.0,144-284,259-511,,1082-1702,781-1250,False,35 k5 seats ground; D-D bore by wire EDM; M35x1.5 thread; keyway
+WT-6C-202,"Housing, roll spindle",1,6061-T6,prec,2.90 x 2.90 x 3.47,1.89,3.32,1.07,6.1,57-119,108-226,,618-986,428-699,False,55 H7 bores line-bored in one setup (runout .0005)
+WT-6C-203-1,"Cap, front",1,6061-T6,prec,0.24 x 2.90 x 2.90,0.14,0.24,0.18,2.5,24-54,46-103,,238-380,164-267,False,
+WT-6C-203-2,"Cap, rear",1,6061-T6,prec,0.24 x 2.90 x 2.90,0.1,0.24,0.18,2.2,23-53,44-101,,214-343,148-242,False,
+WT-6C-204,"Adapter, gearbox",1,6061-T6,std,0.55 x 2.90 x 2.90,0.17,0.6,0.2,1.9,19-45,36-86,66-124,193-311,133-219,True,
+WT-6C-205,"Bracket, roll encoder",1,6061-T6,std,0.12 x 1.50 x 1.50,0.02,0.04,0.09,1.2,12-32,23-61,40-80,121-197,83-137,True,
+WT-6C-301,"Sleeve, calibration",1,6061-T6,prec,1.85 x 1.85 x 5.60,0.76,2.22,0.43,6.5,61-128,116-243,,646-1029,446-726,False,20 reamed load holes (pos .001) + 20 corner grooves
+WT-6C-302,"Arm, roll calibration",1,6061-T6,std,0.50 x 2.45 x 9.20,0.81,1.24,0.46,2.0,22-50,42-95,73-137,204-329,142-233,True,
+WT-6C-303,"Stirrup, 45 deg",1,6061-T6,std,0.30 x 3.24 x 3.57,0.09,0.49,0.22,1.8,18-43,34-82,60-115,182-294,126-207,True,
+WT-6C-304,"Yoke, calibration",1,6061-T6,std,1.40 x 1.97 x 2.41,0.13,0.83,0.2,2.3,24-54,46-103,81-151,228-366,157-258,True,
+WT-6C-305,"Plate, head, cal. stand",2,6061-T6,std,0.50 x 3.85 x 16.15,2.23,3.28,2.53,2.2,48-103,91-196,,277-459,201-338,False,16.15 in long: over the SendCutSend 12 in limit
+WT-6C-306-1,"Bridge, jack",1,6061-T6,std,0.50 x 1.10 x 3.00,0.14,0.24,0.13,1.5,16-40,30-76,55-106,147-238,101-167,True,
+WT-6C-306-2,"Spacer, cross",2,6061-T6,std,0.80 x 0.80 x 3.00,0.18,0.27,0.26,1.6,23-60,44-114,70-141,161-267,112-188,True,
+WT-6C-307,"Tube, base, cal. stand",1,6061-T6,std,1.50 x 3.00 x 31.00,3.2,3.4,1.89,1.9,27-51,51-97,,212-340,151-247,False,cut + drill purchased 3x1.5x.125 tube (31 in)
+WT-6C-308/309/310,"Uprights (4), axles (2), pulleys (3)",1,6061-T6,std,0.00 x 0.00 x 0.00,0.0,2.4,0.82,5.8,58-121,110-230,210-377,572-913,396-645,True,"pulley uprights, axles (5/16 ground rod) and 2 in pulleys with R5-2Z bearings"
+WT-6C-401,"Cheek, pitch sector",2,6061-T6,prec,0.50 x 7.10 x 14.75,2.59,5.38,2.93,4.5,79-163,150-310,,530-865,382-634,False,arc track slots profile .002; machine both stacked
+WT-6C-402,"Rack plate, pitch",1,6061-T6,prec,0.50 x 3.29 x 13.94,0.89,2.45,0.69,6.0,86-176,163-334,,607-949,449-708,False,~87 internal teeth m1.25 by wire EDM
+WT-6C-403,"Plate, base, pitch",1,6061-T6,std,0.75 x 5.70 x 9.20,2.42,4.11,1.37,2.1,34-71,65-135,,243-396,173-288,False,"0.75 in plate, 9.2 x 5.7 in; flat .002 is tighter than SCS"
+WT-6C-404-1,"Tie, top",1,6061-T6,std,1.38 x 2.53 x 3.00,0.55,1.26,0.31,1.6,21-47,40-89,65-123,167-272,117-194,True,
+WT-6C-404-2/3,"Spacers, pitch",2,6061-T6,std,0.90 x 1.00 x 3.00,0.25,0.37,0.29,1.5,23-60,44-114,69-141,159-263,110-185,True,
+WT-6C-405,"Bracket, pitch drive",1,6061-T6,prec,1.30 x 1.88 x 2.30,0.2,0.71,0.18,2.2,23-52,44-99,,223-359,154-253,False,22 H7 bearing bore
+WT-6C-406,Pinion shaft (gear bought),1,4140 PH,prec,0.00 x 0.00 x 0.00,0.0,0.3,0.2,3.0,33-64,59-115,,283-443,198-317,False,8 h6 ground shaft + rebore/pin the stock m1.25 20T gear
+WT-6C-501,"Rail, yaw, inner",1,6061-T6,prec,0.50 x 3.45 x 15.61,1.07,2.86,0.79,4.6,49-102,93-194,,471-754,327-535,False,V-edges on both arcs (hard anodize preferred)
+WT-6C-502,"Rail, yaw, outer",1,6061-T6,prec,0.50 x 5.27 x 24.99,1.8,6.79,1.61,5.3,69-139,131-264,,568-913,400-657,False,
+WT-6C-503,"Rack, yaw, floor",1,6061-T6,prec,0.50 x 5.77 x 10.67,0.45,3.2,0.81,6.1,89-183,169-348,,624-977,462-729,False,~80 external teeth m1.25 by wire EDM
+WT-6C-504,"Plate, yaw carriage",1,6061-T6,std,0.50 x 12.36 x 18.69,7.27,11.64,4.12,2.9,65-127,124-241,,389-638,286-478,False,~11 x 18 in sector plate
+WT-6C-505,"Pinion mods, yaw (gear bought)",1,steel,prec,0.00 x 0.00 x 0.00,0.0,0.0,0.2,1.7,15-29,27-52,,157-246,109-175,False,rebore + keyway/set screw on a stock m1.25 20T gear
+WT-6C-506,"Spacers, wheel (plain + eccentric)",8,6061-T6,std,0.00 x 0.00 x 0.00,0.0,0.04,1.6,3.3,64-183,122-348,174-380,336-572,235-403,True,
