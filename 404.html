@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Page moved</title>
+<script>
+  // old address like /Wind-Tunnel-Upgrade/drawings.html -> /Wind-Tunnel-Upgrade/website/drawings.html
+  var m = location.pathname.match(/^(.*\/)([^\/]+\.html)$/);
+  if (m && !/\/website\/$/.test(m[1])) location.replace(m[1] + "website/" + m[2] + location.search + location.hash);
+</script></head>
+<body style="font-family:system-ui,sans-serif;margin:40px">
+<p>This page was not found. <a href="/Wind-Tunnel-Upgrade/website/index.html">Go to the website</a>.</p>
+</body></html>
