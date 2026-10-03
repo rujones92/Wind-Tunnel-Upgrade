@@ -26,9 +26,9 @@ PARTS = [
     ("WT-6C-003", "sting", "six_component_balance/sting_4140.step", 1, "4140 pre-hard 28-32 HRC (ask for 42CrMo; 45# steel is the JLCCNC fallback)",
      "black oxide", "0.300 in bore x 17 in (gun drill); OD ground .8740-.8750, straightness .002."),
     ("WT-6C-004", "pod_reference_2.25in_printed", "six_component_balance/pod_reference_2.25in_printed.step", 1,
-     "3D PRINTED - MJF PA12 nylon preferred (or SLA / FFF PETG); NOT CNC", "as printed",
+     "PC-ABS, 3D PRINTED (JLC3DP); NOT CNC", "as printed",
      "3D-PRINTED PART: internal 0.060 in pressure channels and a nose ring cannot be machined. Choose a 3D-printing "
-     "process; clear all channels (blow out powder/resin). JLCCNC quoted $33.08 (2026-10-03)."),
+     "process; clear all channels before use. JLC3DP quoted $112.96 in PC-ABS (2026-10-03)."),
     ("WT-6C-201", "spindle_roll", "roll_spindle/spindle_4140.step", 1, "4140 pre-hard (ask for 42CrMo)",
      "black oxide except seats", "35 k5 bearing seats ground; D-D bore by wire EDM; M35x1.5 thread; keyway."),
     ("WT-6C-202", "housing_roll_spindle", "roll_spindle/housing_6061.step", 1, "6061-T6",

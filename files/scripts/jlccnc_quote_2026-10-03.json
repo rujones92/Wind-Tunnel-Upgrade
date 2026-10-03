@@ -78,10 +78,12 @@
   "WT-6C-506-2 wheel spacer eccentric x4": 69.24
  },
  "added_lines": {
-  "WT-6C-004 pod (3D printed)": {
-   "price": 33.08,
+  "WT-6C-004 pod (3D printed, JLC3DP)": {
+   "price": 112.96,
    "date": "2026-10-03",
-   "note": "quoted separately after the main quote; must be a 3D-printing process (MJF PA12 preferred) - the internal 0.060 in channels cannot be machined"
+   "supplier": "JLC3DP",
+   "material": "PC-ABS",
+   "note": "3D printed (internal 0.060 in channels cannot be machined); replaces an earlier $33.08 JLCCNC line; shipping not included"
   }
  }
 }
