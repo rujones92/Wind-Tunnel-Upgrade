@@ -3,7 +3,7 @@
 <title>Models &amp; pod - Sting Balance (Roll, Pitch, Yaw)</title>
 <meta name="description" content="3D-printed models, the instrumented pod and the model interface">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232a78d6'/%3E%3Cpath d='M5 18h14l6-4h3' stroke='white' stroke-width='3' fill='none'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="assets/style.css"><script>
+<link rel="stylesheet" href="../assets/style.css"><script>
 (function(){try{var t=localStorage.getItem('sbrpy-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
 function toggleTheme(){var d=document.documentElement,c=d.getAttribute('data-theme');
 var dark=c?c==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;var n=dark?'light':'dark';
@@ -21,7 +21,7 @@ front face with 2x #10 screws and 2x 1/8 dowels. The printed pod slides over the
 screws through its wall into the puck, so models swap without touching the balance. A 3/16 in hole passes the
 pod-sensor wires.</p>
 <h2>Reference pod (2.25 in) with pressure instrumentation</h2>
-<figure><a href="assets/img/pod_instrumentation.png"><img src="assets/img/pod_instrumentation.png" alt="Current 2.25 in pod (9.4 in long, 3D printed; STEP: pod_reference_2.25in_printed.step). Pod instrumentation: 4 base taps -&gt; printed wall channels -&gt; averaging ring in the nose -&gt; sensor bay; separate cavity tap. Sections show the channels in the wall." loading="lazy"></a><figcaption>Current 2.25 in pod (9.4 in long, 3D printed; STEP: pod_reference_2.25in_printed.step). Pod instrumentation: 4 base taps -> printed wall channels -> averaging ring in the nose -> sensor bay; separate cavity tap. Sections show the channels in the wall.</figcaption></figure>
+<figure><a href="../assets/img/pod_instrumentation.png"><img src="../assets/img/pod_instrumentation.png" alt="Current 2.25 in pod (9.4 in long, 3D printed; STEP: pod_reference_2.25in_printed.step). Pod instrumentation: 4 base taps -&gt; printed wall channels -&gt; averaging ring in the nose -&gt; sensor bay; separate cavity tap. Sections show the channels in the wall." loading="lazy"></a><figcaption>Current 2.25 in pod (9.4 in long, 3D printed; STEP: pod_reference_2.25in_printed.step). Pod instrumentation: 4 base taps -> printed wall channels -> averaging ring in the nose -> sensor bay; separate cavity tap. Sections show the channels in the wall.</figcaption></figure>
 <ul class="tight">
 <li><b>Base taps:</b> 4x 1/16 in at 30°/150°/210°/330° (clear of the pod screws and the wing roots), 1.5 mm channels printed in the mid-wall, a manifold ring averages them.</li>
 <li><b>Cavity tap</b> near the aft fitting, own channel. <b>Sensor bay</b> in the nose for two barometric boards (base, cavity) and the attitude IMU.</li>
@@ -31,8 +31,8 @@ pod-sensor wires.</p>
 </ul>
 <h2>Model guidelines</h2>
 <div class="table-wrap"><table><thead><tr><th class="">Topic</th><th class="">Guideline</th></tr></thead><tbody><tr><td class="">Material</td><td class="">PC-CF preferred (low creep, low moisture). PA6-CF only if dried, sealed and stored dry. PETG for quick prototypes.</td></tr><tr><td class="">Stiffness</td><td class="">6 mm carbon tube spar in wings, or tips deflect noticeably at 100 mph.</td></tr><tr><td class="">Reference point</td><td class="">Wing quarter-chord at the BMC (x = 0). Moments are transferred to any other reference in software.</td></tr><tr><td class="">Size for rolling</td><td class="">Span ≤ 9 in for full ±90° roll; 12 in -> ±50°; 18 in -> ±25° (software-enforced).</td></tr><tr><td class="">Mass</td><td class="">Keep under ~1 lb; weight is removed by a wind-off tare at every attitude.</td></tr><tr><td class="">Surface</td><td class="">Smooth finish or trip strips: Re is only 1.9-2.7 x 10⁵.</td></tr><tr><td class="">Keep-outs</td><td class="">Do not drill or bolt into the pod wall at the tap-channel angles (30/150/210/330°).</td></tr></tbody></table></div>
-<p>The pod is 3D printed, so it has no machining drawing: the STEP file is the print file (export it to STL and print it; print it standing on its base, nose up, so the 0.060 in tap channels print as vertical round holes; no supports inside them). CAD: <a href="files/cad/six_component_balance/pod_reference_2.25in_printed.step">pod_reference_2.25in_printed.step</a>,
-<a href="files/cad/six_component_balance/model_puck_6061.step">model_puck_6061.step</a>.</p>
+<p>The pod is 3D printed, so it has no machining drawing: the STEP file is the print file (export it to STL and print it; print it standing on its base, nose up, so the 0.060 in tap channels print as vertical round holes; no supports inside them). CAD: <a href="../files/cad/six_component_balance/pod_reference_2.25in_printed.step">pod_reference_2.25in_printed.step</a>,
+<a href="../files/cad/six_component_balance/model_puck_6061.step">model_puck_6061.step</a>.</p>
 <div class="pager"><a href="balance.html">&larr; Balance</a><a href="motion.html">Motion system &rarr;</a></div></main>
 <footer><div class="in">Wind-tunnel sting balance project - motorized 6-component balance with roll, pitch and yaw.
 Design package generated 2026-10-03 (REV A, AI-assisted; not yet checked or approved for manufacture).</div></footer>
